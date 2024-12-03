@@ -6,9 +6,9 @@ import { theme } from "./theme"
 import { BrowserRouter } from "react-router-dom"
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
-  </BrowserRouter>
+    <BrowserRouter>
+        <ThemeProvider theme={theme}>
+            <App />
+        </ThemeProvider>
+    </BrowserRouter>
 )

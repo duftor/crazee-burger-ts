@@ -6,9 +6,15 @@ import EmptyBasket from "./EmptyBasket"
 import BasketProducts from "./BasketProducts"
 
 export default function BasketBody() {
-  const { basket, menu } = useContext(OrderContext)
+    const { basket, menu } = useContext(OrderContext)
 
-  return (
-    <>{isEmpty(basket) ? <EmptyBasket isLoading={menu === undefined} /> : <BasketProducts />}</>
-  )
+    return (
+        <>
+            {isEmpty(basket) ? (
+                <EmptyBasket isLoading={menu === undefined} />
+            ) : (
+                <BasketProducts />
+            )}
+        </>
+    )
 }
