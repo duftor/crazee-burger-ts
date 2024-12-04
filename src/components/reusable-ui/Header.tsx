@@ -1,8 +1,8 @@
-import React from "react"
+import { PropsWithChildren } from "react"
 import styled from "styled-components"
 import { theme } from "../../theme"
 
-export default function Header({ children }) {
+export default function Header({ children }: PropsWithChildren) {
     return <HeaderStyled>{children}</HeaderStyled>
 }
 
