@@ -8,6 +8,8 @@ import {
 } from "../utils/array"
 import { setLocalStorage } from "../utils/window"
 
+// TODO: During TS migration, declare a specific type for the stored data and use it in setLocalStorage
+// Example: setLocalStorage<BasketType[]>('basketKey', basketData)
 export const useBasket = () => {
     const [basket, setBasket] = useState([])
 
