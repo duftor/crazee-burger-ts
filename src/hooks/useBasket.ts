@@ -7,13 +7,12 @@ import {
     removeObjectById,
 } from "../utils/array"
 import { setLocalStorage } from "../utils/window"
+import { Basket } from "../types/basket"
 
-// TODO: During TS migration, declare a specific type for the stored data and use it in setLocalStorage
-// Example: setLocalStorage<BasketType[]>('basketKey', basketData)
 export const useBasket = () => {
-    const [basket, setBasket] = useState([])
+    const [basket, setBasket] = useState<Basket[]>([])
 
-    const handleAddToBasket = (idProductToAdd, username) => {
+    const handleAddToBasket = (idProductToAdd: string, username: string) => {
         const basketCopy = deepClone(basket)
         const productAlreadyInBasket = findObjectById(
             idProductToAdd,
@@ -33,9 +32,9 @@ export const useBasket = () => {
     }
 
     const incrementProductAlreadyInBasket = (
-        idProductToAdd,
-        basketCopy,
-        username
+        idProductToAdd: string,
+        basketCopy: Basket[],
+        username: string
     ) => {
         const indexOfBasketProductToIncrement = findIndexById(
             idProductToAdd,
@@ -47,19 +46,22 @@ export const useBasket = () => {
     }
 
     const createNewBasketProduct = (
-        idProductToAdd,
-        basketCopy,
-        setBasket,
-        username
+        idProductToAdd: string,
+        basketCopy: Basket[],
+        setBasket: React.Dispatch<React.SetStateAction<Basket[]>>,
+        username: string
     ) => {
         // we do not re-create a whole product, we only add the extra info a basket product has in comparison to a menu product
-        const newBasketProduct = { id: idProductToAdd, quantity: 1 }
+        const newBasketProduct = { id: idProductToAdd, quantity: 1 } as Basket
         const newBasket = [newBasketProduct, ...basketCopy]
         setBasket(newBasket)
         setLocalStorage(username, newBasket)
     }
 
-    const handleDeleteBasketProduct = (idBasketProduct, username) => {
+    const handleDeleteBasketProduct = (
+        idBasketProduct: string,
+        username: string
+    ) => {
         const basketUpdated = removeObjectById(idBasketProduct, basket)
         setBasket(basketUpdated)
         setLocalStorage(username, basketUpdated)
