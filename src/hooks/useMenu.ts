@@ -2,13 +2,13 @@ import { useState } from "react"
 import { fakeMenu } from "../fakeData/fakeMenu"
 import { deepClone } from "../utils/array"
 import { syncBothMenus } from "../api/product"
-import { Product } from "../types/product"
+import { MenuProduct } from "../types/product"
 
 export const useMenu = () => {
-    const [menu, setMenu] = useState<Product[] | undefined>(undefined) // TODO: Demander à Vi si c'est pas mieux avec un if (on lance pas les fonctions pour un tableau vide => inutile)
+    const [menu, setMenu] = useState<MenuProduct[] | undefined>(undefined) // TODO: Demander à Vi si c'est pas mieux avec un if (on lance pas les fonctions pour un tableau vide => inutile)
 
     // comportements (gestionnaire de state ou "state handlers")
-    const handleAdd = (newProduct: Product, username: string) => {
+    const handleAdd = (newProduct: MenuProduct, username: string) => {
         // 1. copie du tableau
         if (menu) {
             const menuCopy = deepClone(menu)
@@ -39,7 +39,7 @@ export const useMenu = () => {
         }
     }
 
-    const handleEdit = (productBeingEdited: Product, username: string) => {
+    const handleEdit = (productBeingEdited: MenuProduct, username: string) => {
         // 1. copie du state (deep clone)
         if (menu) {
             const menuCopy = deepClone(menu)
