@@ -6,6 +6,8 @@ const intialiseMenu = async (username, setMenu) => {
     setMenu(menuReceived)
 }
 
+// TODO: During TS migration, declare a specific type for the stored data and use it in getLocalStorage
+// Example: getLocalStorage<BasketType[]>('basketKey')
 const intialiseBasket = (username, setBasket) => {
     const basketReceived = getLocalStorage(username) // localStorage est synchrone, pas besoin de "await".
     if (basketReceived) setBasket(basketReceived)
