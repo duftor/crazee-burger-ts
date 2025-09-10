@@ -1,6 +1,5 @@
-import { useContext } from "react"
 import styled from "styled-components"
-import OrderContext from "../../../../../../context/OrderContext"
+import { useOrderContext } from "../../../../../../context/OrderContext"
 import { theme } from "../../../../../../theme"
 import { formatPrice } from "../../../../../../utils/maths"
 import Card from "../../../../../reusable-ui/Card"
@@ -18,10 +17,10 @@ import { CSSTransition, TransitionGroup } from "react-transition-group"
 import { menuAnimation } from "../../../../../../theme/animations"
 import { convertStringToBoolean } from "../../../../../../utils/string"
 import RibbonAnimated, { ribbonAnimation } from "./RibbonAnimated"
+import { useParams } from "react-router-dom"
 
 export default function Menu() {
     const {
-        username,
         menu,
         isModeAdmin,
         handleDelete,
@@ -31,9 +30,10 @@ export default function Menu() {
         handleAddToBasket,
         handleDeleteBasketProduct,
         handleProductSelected,
-    } = useContext(OrderContext)
+    } = useOrderContext()
     // state
 
+    const { username } = useParams()
     // comportements (gestionnaires d'événement ou "event handlers")
     const handleCardDelete = (event, idProductToDelete) => {
         event.stopPropagation()
