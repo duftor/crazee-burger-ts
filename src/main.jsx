@@ -3,7 +3,7 @@ import "./index.css"
 import { ThemeProvider } from "styled-components"
 import { theme } from "./theme"
 import { RouterProvider } from "react-router-dom"
-import { router } from "./routers/router.jsx"
+import { router } from "./routers/router"
 import { OrderContextProvider } from "./context/OrderContext"
 
 createRoot(document.getElementById("root")).render(
