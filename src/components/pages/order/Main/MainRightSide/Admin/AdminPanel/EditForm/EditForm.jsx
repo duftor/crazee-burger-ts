@@ -1,19 +1,17 @@
-import { useContext, useState } from "react"
-import OrderContext from "../../../../../../../../context/OrderContext"
+import { useState } from "react"
 import Form from "../Form/Form"
 import EditInfoMessage from "./EditInfoMessage"
 import SavingMessage from "./SavingMessage"
 import { useSuccessMessage } from "../../../../../../../../hooks/useSuccessMessage"
+import { useParams } from "react-router-dom"
+import { useOrderContext } from "../../../../../../../../context/OrderContext"
 
 export default function EditForm() {
     // state
-    const {
-        username,
-        productSelected,
-        setProductSelected,
-        handleEdit,
-        titleEditRef,
-    } = useContext(OrderContext)
+    const { productSelected, setProductSelected, handleEdit, titleEditRef } =
+        useOrderContext()
+
+    const { username } = useParams()
 
     const [valueOnFocus, setvalueOnFocus] = useState()
     const { isSubmitted: isSaved, displaySuccessMessage } = useSuccessMessage()
