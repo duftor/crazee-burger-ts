@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "ESNext", // Spécifie la version ECMAScript à utiliser (ESNext pour la plus récente)
         "lib": ["DOM", "DOM.Iterable", "ESNext"], // Spécifie les bibliothèques (DOM, DOM.Iterable et ESNext) disponibles
-        "allowJs": true, // Permet l'importation et la compilation de fichiers JavaScript
+        "allowJs": false, // Permet l'importation et la compilation de fichiers JavaScript
         "skipLibCheck": true, // Ignore la vérification des types dans les fichiers de définition de bibliothèques
         "esModuleInterop": true, // Facilite l'importation des modules CommonJS mais on s'en moque auj car on n'utilise plus CommonJS mais ESNext avec "import" et "export" pour gérer les imports et les export de modules.
         "allowSyntheticDefaultImports": true, // Permet d'importer des modules CommonJS avec la syntaxe import ES6 moderne
