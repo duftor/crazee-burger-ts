@@ -1,10 +1,18 @@
-import React from "react"
+import React, { ChangeEventHandler, FocusEventHandler } from "react"
 import TextInput from "../../../../../../../reusable-ui/TextInput"
 import SelectInput from "../../../../../../../reusable-ui/SelectInput"
 import styled from "styled-components"
 import { getInputTextsConfig, getSelectInputConfig } from "./inputConfig"
+import { MenuProduct } from "../../../../../../../../types/product"
 
-export const Inputs = React.forwardRef(
+type InputsProps = {
+    product: MenuProduct
+    onChange?: ChangeEventHandler<HTMLInputElement | HTMLSelectElement>
+    onFocus?: FocusEventHandler<HTMLInputElement | HTMLSelectElement>
+    onBlur?: FocusEventHandler<HTMLInputElement | HTMLSelectElement>
+}
+
+export const Inputs = React.forwardRef<HTMLInputElement, InputsProps>(
     ({ product, onChange, onFocus, onBlur }, ref) => {
         const inputTexts = getInputTextsConfig(product)
         const inputSelects = getSelectInputConfig(product)

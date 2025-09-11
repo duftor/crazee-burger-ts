@@ -8,7 +8,7 @@ export type OptionType = {
 
 type SelectInputProps = {
     options: OptionType[]
-    value: boolean
+    value: string
     name: string
     Icon?: React.ReactNode
     className?: string
