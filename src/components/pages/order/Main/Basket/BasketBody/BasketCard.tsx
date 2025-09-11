@@ -1,9 +1,22 @@
-import React from "react"
 import styled, { css } from "styled-components"
 import { MdDeleteForever } from "react-icons/md"
 import { theme } from "../../../../../../theme"
 import CasinoEffect from "../../../../../reusable-ui/CasinoEffect"
 import Sticker from "../../../../../reusable-ui/Sticker"
+import { MouseEventHandler } from "react"
+
+type BasketCardProps = {
+    title: string
+    price: string
+    quantity: number
+    imageSource: string
+    className?: string
+    isClickable?: boolean
+    onClick?: MouseEventHandler<HTMLDivElement>
+    onDelete?: MouseEventHandler<HTMLDivElement>
+    isSelected?: boolean
+    isPublicised?: boolean
+}
 
 export default function BasketCard({
     title,
@@ -16,13 +29,13 @@ export default function BasketCard({
     onDelete,
     isSelected,
     isPublicised,
-}) {
+}: BasketCardProps) {
     return (
         <BasketCardStyled
             className={className}
-            isClickable={isClickable}
+            $isClickable={isClickable}
             onClick={onClick}
-            isSelected={isSelected}>
+            $isSelected={isSelected}>
             <div className="delete-button" onClick={onDelete}>
                 <MdDeleteForever className="icon" />
             </div>
@@ -45,8 +58,13 @@ export default function BasketCard({
     )
 }
 
+type BasketCardStyledProps = {
+    $isClickable?: boolean
+    $isSelected?: boolean
+}
 const BasketCardStyled = styled.div`
-    cursor: ${({ isClickable }) => (isClickable ? "pointer" : "auto")};
+    cursor: ${({ $isClickable }: BasketCardStyledProps) =>
+        $isClickable ? "pointer" : "auto"};
     /* border: 1px solid red; */
     box-sizing: border-box;
     height: 86px;
@@ -174,8 +192,8 @@ const BasketCardStyled = styled.div`
         }
     }
 
-    ${({ isClickable, isSelected }) =>
-        isClickable && isSelected && selectedStyled}
+    ${({ $isClickable, $isSelected }) =>
+        $isClickable && $isSelected && selectedStyled}
 `
 
 const selectedStyled = css`
