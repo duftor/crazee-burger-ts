@@ -2,7 +2,10 @@ export const deepClone = <T>(array: T[]): T[] => {
     return JSON.parse(JSON.stringify(array))
 }
 
-export const findObjectById = <T extends { id: string }>(id: string, array: T[]) => {
+export const findObjectById = <T extends { id: string }>(
+    id: string,
+    array: T[]
+) => {
     return array.find((itemInArray) => itemInArray.id === id)
 }
 
@@ -22,6 +25,6 @@ export const removeObjectById = <T extends { id: string }>(
     return array.filter((item) => item.id !== idOfItemToRemove)
 }
 
-export const isEmpty = (array: []) => {
+export const isEmpty = <T>(array: T[]) => {
     return array.length === 0
 }

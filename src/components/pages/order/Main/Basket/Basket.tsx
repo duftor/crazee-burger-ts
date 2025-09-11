@@ -1,4 +1,3 @@
-// @ts-nocheck
 import styled from "styled-components"
 import BasketHeader from "./BasketHeader/BasketHeader"
 import BasketFooter from "./BasketFooter"
