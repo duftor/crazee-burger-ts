@@ -1,8 +1,13 @@
 import styled from "styled-components"
 import { theme } from "../../../../../../theme"
 import Button from "../../../../../reusable-ui/Button"
+import { MouseEventHandler } from "react"
 
-export default function EmptyMenuAdmin({ onReset }) {
+type EmptyMenuAdminProps = {
+    onReset?: MouseEventHandler<HTMLButtonElement>
+}
+
+export default function EmptyMenuAdmin({ onReset }: EmptyMenuAdminProps) {
     return (
         <EmptyMenuStyled>
             <span className="title">Le menu est vide ?</span>
