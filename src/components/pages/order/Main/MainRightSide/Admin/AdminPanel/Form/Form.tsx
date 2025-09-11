@@ -1,15 +1,24 @@
-import React from "react"
+import React, {
+    ChangeEventHandler,
+    FocusEventHandler,
+    FormEventHandler,
+} from "react"
 import styled from "styled-components"
 import ImagePreview from "./ImagePreview"
 import { Inputs } from "./Inputs"
+import { MenuProduct } from "../../../../../../../../types/product"
 
-const Form = React.forwardRef(
+type FormProps = {
+    product: MenuProduct
+    onSubmit?: FormEventHandler<HTMLFormElement>
+    children: JSX.Element
+    onChange?: ChangeEventHandler<HTMLInputElement | HTMLSelectElement>
+    onFocus?: FocusEventHandler<HTMLInputElement | HTMLSelectElement>
+    onBlur?: FocusEventHandler<HTMLInputElement | HTMLSelectElement>
+}
+
+const Form = React.forwardRef<HTMLInputElement, FormProps>(
     ({ product, onSubmit, children, onChange, onFocus, onBlur }, ref) => {
-        // state (vide)
-
-        // comportements (vide)
-
-        // affichage
         return (
             <FormStyled onSubmit={onSubmit}>
                 <ImagePreview
@@ -32,7 +41,6 @@ const Form = React.forwardRef(
 export default Form
 
 const FormStyled = styled.form`
-    /* border: 2px solid black; */
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: repeat(4, 1fr);
@@ -42,7 +50,6 @@ const FormStyled = styled.form`
     grid-row-gap: 8px;
 
     .form-footer {
-        /* background: green; */
         grid-area: 4 / -2 / -1 / -1;
         display: flex;
         align-items: center;

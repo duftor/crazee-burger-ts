@@ -4,6 +4,7 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi"
 import { theme } from "../../../../../../theme"
 import { useOrderContext } from "../../../../../../context/OrderContext"
 import { getTabsConfig } from "./tabsConfig"
+import { TabOption } from "../../../../../../types/global"
 
 export default function AdminTabs() {
     // state
@@ -15,7 +16,7 @@ export default function AdminTabs() {
     } = useOrderContext()
 
     // comportements
-    const selectTab = (tabSelected) => {
+    const selectTab = (tabSelected: TabOption) => {
         setIsCollapsed(false) // tu m'ouvres le pannel
         setCurrentTabSelected(tabSelected)
     }

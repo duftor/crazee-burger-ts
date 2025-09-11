@@ -1,16 +1,14 @@
 import styled from "styled-components"
 import { theme } from "../../theme"
 
-type Option = "true" | "false"
-
 export type OptionType = {
-    optionValue: Option
+    optionValue: "true" | "false"
     label: string
 }
 
 type SelectInputProps = {
     options: OptionType[]
-    value: boolean
+    value: string
     name: string
     Icon?: React.ReactNode
     className?: string

@@ -1,8 +1,11 @@
-import React from "react"
 import Button from "../../../../../../../reusable-ui/Button"
 import SubmitMessage from "./SubmitMessage"
 
-export default function SubmitButton({ isSubmitted }) {
+type SubmitButton = {
+    isSubmitted: boolean
+}
+
+export default function SubmitButton({ isSubmitted }: SubmitButton) {
     return (
         <>
             <Button

@@ -1,8 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 import { theme } from "../../theme"
+import { TabOption } from "../../types/global"
 
 type TabProps = {
+    index: TabOption
     label: string
     Icon?: JSX.Element
     onClick?: React.MouseEventHandler<HTMLButtonElement>
