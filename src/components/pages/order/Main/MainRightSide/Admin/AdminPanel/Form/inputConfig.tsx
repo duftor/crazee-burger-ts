@@ -7,8 +7,9 @@ import {
     isAvailableOptions,
     isPublicisedOptions,
 } from "../../../../../../../../enums/select"
+import { MenuProduct } from "../../../../../../../../types/product"
 
-export const getInputTextsConfig = (newProduct) => [
+export const getInputTextsConfig = (newProduct: MenuProduct) => [
     {
         id: "0",
         name: "title",
@@ -39,7 +40,7 @@ export const getInputTextsConfig = (newProduct) => [
     },
 ]
 
-export const getSelectInputConfig = (newProduct) => [
+export const getSelectInputConfig = (newProduct: MenuProduct) => [
     {
         id: "3",
         name: "isAvailable",
