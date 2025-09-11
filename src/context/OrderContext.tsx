@@ -32,7 +32,7 @@ type OrderContextType = {
     productSelected: MenuProduct
     setProductSelected: Dispatch<SetStateAction<MenuProduct>>
     handleEdit: (productBeingEdited: MenuProduct, username: string) => void
-    titleEditRef: MutableRefObject<HTMLInputElement | undefined>
+    titleEditRef: MutableRefObject<HTMLInputElement | null>
     basket: BasketProductQuantity[]
     setBasket: Dispatch<SetStateAction<BasketProductQuantity[]>>
     handleAddToBasket: (idProductToAdd: string, username: string) => void
@@ -55,7 +55,7 @@ export const OrderContextProvider = ({ children }: PropsWithChildren) => {
     const [newProduct, setNewProduct] = useState<MenuProduct>(EMPTY_PRODUCT)
     const [productSelected, setProductSelected] =
         useState<MenuProduct>(EMPTY_PRODUCT)
-    const titleEditRef = useRef<HTMLInputElement>()
+    const titleEditRef = useRef<HTMLInputElement>(null)
     const { menu, setMenu, handleAdd, handleDelete, handleEdit, resetMenu } =
         useMenu()
     const { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct } =

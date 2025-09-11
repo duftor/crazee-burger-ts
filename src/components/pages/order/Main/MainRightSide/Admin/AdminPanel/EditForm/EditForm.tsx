@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { ChangeEvent, FocusEvent, useState } from "react"
 import Form from "../Form/Form"
 import EditInfoMessage from "./EditInfoMessage"
 import SavingMessage from "./SavingMessage"
@@ -13,11 +13,13 @@ export default function EditForm() {
 
     const { username } = useParams()
 
-    const [valueOnFocus, setvalueOnFocus] = useState()
+    const [valueOnFocus, setvalueOnFocus] = useState("")
     const { isSubmitted: isSaved, displaySuccessMessage } = useSuccessMessage()
 
     // comportements (gestionnaires d'événement ou "event handlers")
-    const handleChange = (event) => {
+    const handleChange = (
+        event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    ) => {
         const { name, value } = event.target
 
         const productBeingUpdated = {
@@ -26,15 +28,19 @@ export default function EditForm() {
         }
 
         setProductSelected(productBeingUpdated) // cette ligne update le formulaire
-        handleEdit(productBeingUpdated, username) // cette ligne update le menu
+        username && handleEdit(productBeingUpdated, username) // cette ligne update le menu
     }
 
-    const handleOnFocus = (event) => {
+    const handleOnFocus = (
+        event: FocusEvent<HTMLInputElement | HTMLSelectElement, Element>
+    ) => {
         const valueOnFocus = event.target.value
         setvalueOnFocus(valueOnFocus)
     }
 
-    const handleOnBlur = (event) => {
+    const handleOnBlur = (
+        event: FocusEvent<HTMLInputElement | HTMLSelectElement, Element>
+    ) => {
         const valueOnBlur = event.target.value
         if (valueOnFocus !== valueOnBlur) {
             console.log("ça a changé !!")
