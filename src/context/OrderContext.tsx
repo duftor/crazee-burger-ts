@@ -13,16 +13,15 @@ import { useMenu } from "../hooks/useMenu"
 import { useBasket } from "../hooks/useBasket"
 import { findObjectById } from "../utils/array"
 import { BasketProductQuantity, MenuProduct } from "../types/product"
-
-type TabOptions = "add" | "edit" | "chevron"
+import { TabOption } from "../types/global"
 
 type OrderContextType = {
     isModeAdmin: boolean
     setIsModeAdmin: Dispatch<SetStateAction<boolean>>
     isCollapsed: boolean
     setIsCollapsed: Dispatch<SetStateAction<boolean>>
-    currentTabSelected: TabOptions
-    setCurrentTabSelected: Dispatch<SetStateAction<TabOptions>>
+    currentTabSelected: TabOption
+    setCurrentTabSelected: Dispatch<SetStateAction<TabOption>>
     menu: MenuProduct[] | undefined
     setMenu: Dispatch<SetStateAction<MenuProduct[] | undefined>>
     handleAdd: (newProduct: MenuProduct, username: string) => void
@@ -52,7 +51,7 @@ export const OrderContextProvider = ({ children }: PropsWithChildren) => {
     const [isModeAdmin, setIsModeAdmin] = useState(false)
     const [isCollapsed, setIsCollapsed] = useState(false)
     const [currentTabSelected, setCurrentTabSelected] =
-        useState<TabOptions>("add")
+        useState<TabOption>("add")
     const [newProduct, setNewProduct] = useState<MenuProduct>(EMPTY_PRODUCT)
     const [productSelected, setProductSelected] =
         useState<MenuProduct>(EMPTY_PRODUCT)

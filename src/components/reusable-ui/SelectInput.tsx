@@ -1,10 +1,8 @@
 import styled from "styled-components"
 import { theme } from "../../theme"
 
-type Option = "true" | "false"
-
 export type OptionType = {
-    optionValue: Option
+    optionValue: "true" | "false"
     label: string
 }
 

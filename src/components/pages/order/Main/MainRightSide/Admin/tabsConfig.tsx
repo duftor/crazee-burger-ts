@@ -3,8 +3,16 @@ import { MdModeEditOutline } from "react-icons/md"
 import EditForm from "./AdminPanel/EditForm/EditForm"
 import HintMessage from "./AdminPanel/EditForm/HintMessage"
 import AddForm from "./AdminPanel/AddForm/AddForm"
+import { TabOption } from "../../../../../../types/global"
 
-export const getTabsConfig = (hasAlreadyBeenClicked) => [
+type TabConfig = {
+    index: TabOption
+    label: string
+    Icon: JSX.Element
+    Content: JSX.Element
+}
+
+export const getTabsConfig = (hasAlreadyBeenClicked?: boolean): TabConfig[] => [
     {
         index: "add",
         label: "Ajouter un produit",
@@ -19,6 +27,9 @@ export const getTabsConfig = (hasAlreadyBeenClicked) => [
     },
 ]
 
-export const getTabSelected = (tabs, currentTabSelected) => {
-    return tabs.find((tab) => tab.index === currentTabSelected)
+export const getTabSelected = (
+    tabs: TabConfig[],
+    currentTabIndexSelected: TabOption
+) => {
+    return tabs.find((tab) => tab.index === currentTabIndexSelected)
 }
