@@ -5,7 +5,6 @@ import { theme } from "../../../theme"
 import Main from "./Main/Main"
 import Navbar from "./Navbar/Navbar"
 import { useParams } from "react-router-dom"
-// @ts-ignore
 import { initialiseUserSession } from "./helpers/initialiseUserSession"
 import { useOrderContext } from "../../../context/OrderContext"
 
@@ -15,7 +14,7 @@ export default function OrderPage() {
     const { setMenu, setBasket } = useOrderContext()
 
     useEffect(() => {
-        initialiseUserSession(username, setMenu, setBasket)
+        if (username) initialiseUserSession(username, setMenu, setBasket)
     }, [])
 
     //affichage (render)

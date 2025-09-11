@@ -1,6 +1,6 @@
 export const checkIfProductIsClicked = (
-    idProductInMenu,
-    idProductClickedOn
+    idProductInMenu: string,
+    idProductClickedOn: string
 ) => {
     return idProductInMenu === idProductClickedOn
 }
